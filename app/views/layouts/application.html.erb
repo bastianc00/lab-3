@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Personal Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "style" %>
+  <%= javascript_include_tag "application" %>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">My Personal Page</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer class="bg-light text-center mt-5 py-3">
+    <div class="container">
+      <p class="mb-0">Copyright © <%= Time.now.year %> My Personal Page</p>
+      <div class="mt-2">
+        <a href="#" class="text-decoration-none mx-2">Facebook</a>
+        <a href="#" class="text-decoration-none mx-2">Twitter</a>
+        <a href="#" class="text-decoration-none mx-2">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

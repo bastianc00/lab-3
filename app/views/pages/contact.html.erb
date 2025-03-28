@@ -1,0 +1,44 @@
+<h2 id="contact" class="contact mt-4">Contact</h2>
+<p class="contact">If you want to contact me, I suggest you write to me on any of my platforms.</p>
+<div class="contact-images row justify-content-center">
+  <div class="col-auto">
+    <a href="mailto:bcepeda@miuandes.cl">
+      <img src="<%= asset_path('email.png') %>" alt="Email" class="contact-icon">
+    </a>
+  </div>
+  <div class="col-auto">
+    <a href="https://github.com/bastianc00">
+      <img src="<%= asset_path('github.png') %>" alt="GitHub" class="contact-icon">
+    </a>
+  </div>
+  <div class="col-auto">
+    <a href="https://www.linkedin.com/in/bastian-cepeda-092064176/">
+      <img src="<%= asset_path('linkedin.png') %>" alt="LinkedIn" class="contact-icon">
+    </a>
+  </div>
+</div>
+
+<%= form_with url: contact_path, method: :post, local: true, class: "mt-4" do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", required: true %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :message, class: "form-label" %>
+    <%= form.text_area :message, class: "form-control", required: true, rows: 5 %>
+  </div>
+  
+  <%= form.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success mt-3">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
